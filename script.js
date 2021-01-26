@@ -16,7 +16,7 @@ function compute_grade(){
 
     output = document.createElement("P");
     output.innerHTML = 
-    `You have an average grade of ${sum_of_grades.toFixed(2)},
+    `You have achieved an average grade of ${((sum_of_grades / sum_of_weights) * 100).toFixed(2)},
     with ${sum_of_weights}% of the course completed.`
 
     document.getElementById("grade-result").appendChild(output);
@@ -77,10 +77,23 @@ function remove_row(){
     generate_grade();
 }
 
-function clear_output(){
+function clear_input(){
+    let grades = document.getElementsByClassName("grade");
+    let weights = document.getElementsByClassName("weight");
+
+    for(let i = 0; i < grades.length; i++){
+        grades[i].value = ""
+        weights[i].value = ""
+    }
+
+    let grade_output = document.getElementById("grade-result");
+    if (grade_output.hasChildNodes()){
+        grade_output.removeChild(grade_output.lastChild);
+    }
 
 }
 
 document.getElementById("compute").addEventListener("click", generate_grade);
 document.getElementById("add-row").addEventListener("click", add_row);
 document.getElementById("remove-row").addEventListener("click", remove_row);
+document.getElementById("clear-inputs").addEventListener("click", clear_input);
