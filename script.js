@@ -16,12 +16,25 @@ function compute_grade(){
 
     output = document.createElement("P");
     output.innerHTML = 
-    `You're current weighted average grade is ${sum_of_grades},
-    with a total of ${sum_of_weights}% of the course completed.`
+    `You have an average grade of ${sum_of_grades},
+    with ${sum_of_weights}% of the course completed.`
 
     document.getElementById("grade-result").appendChild(output);
 
 };
+
+function generate_grade(){
+    
+    let grade_output = document.getElementById("grade-result");
+    if (grade_output.hasChildNodes()){
+        grade_output.removeChild(grade_output.lastChild);
+        compute_grade();
+    }
+    else{
+        compute_grade();
+    }
+
+}
 
 function add_row(){
     let table_length = document.getElementsByClassName("grade-row").length;
@@ -62,6 +75,6 @@ function remove_row(){
     table_body.removeChild(table_body.lastChild);
 }
 
-document.getElementById("compute").addEventListener("click", compute_grade);
+document.getElementById("compute").addEventListener("click", generate_grade);
 document.getElementById("add-row").addEventListener("click", add_row);
 document.getElementById("remove-row").addEventListener("click", remove_row);
