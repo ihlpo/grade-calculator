@@ -16,7 +16,7 @@ function compute_grade(){
 
     output = document.createElement("P");
     output.innerHTML = 
-    `You have an average grade of ${sum_of_grades},
+    `You have an average grade of ${sum_of_grades.toFixed(2)},
     with ${sum_of_weights}% of the course completed.`
 
     document.getElementById("grade-result").appendChild(output);
@@ -73,6 +73,12 @@ function remove_row(){
     console.log("Removing last row...")
     let table_body = document.getElementById("table-body");
     table_body.removeChild(table_body.lastChild);
+
+    generate_grade();
+}
+
+function clear_output(){
+
 }
 
 document.getElementById("compute").addEventListener("click", generate_grade);
