@@ -16,27 +16,31 @@
 			</p>
 		</header>
 		<section class="grade-inputs">
-			<table>
-				<tr class="table-headings">
-					<td>Assignment</td>
-					<td>Mark</td>
-					<td>Weight (%)</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><input class="grade" type="text"></td>
-					<td><input class="weight" type="text"></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><input class="grade" type="text"></td>
-					<td><input class="weight" type="text"></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td><input class="grade" type="text"></td>
-					<td><input class="weight" type="text"></td>
-				</tr>
+			<table id="table">
+				<thead>
+					<tr class="table-headings">
+						<td>Assignment</td>
+						<td>Mark</td>
+						<td>Weight (%)</td>
+					</tr>
+				</thead>
+				<tbody id="table-body">
+					<tr class="grade-row">
+						<td>1</td>
+						<td><input class="grade" type="text"></td>
+						<td><input class="weight" type="text"></td>
+					</tr>
+					<tr class="grade-row">
+						<td>2</td>
+						<td><input class="grade" type="text"></td>
+						<td><input class="weight" type="text"></td>
+					</tr>
+					<tr class="grade-row">
+						<td>3</td>
+						<td><input class="grade" type="text"></td>
+						<td><input class="weight" type="text"></td>
+					</tr>
+				</tbody>
 			</table>
 		
 		</section>
@@ -45,8 +49,11 @@
 		</section>
 
 		<div class="buttons">
+			<button id="add-row">Add Row</button>
+			<button id="remove-row">Remove Row</button>
+			<button class="clear-inputs">Clear Inputs</button>
 			<button id="compute">Get Grade</button>
-			<button class="clear-inputs">Clear inputs</button>
+			
 		</div>
 	</div>
 	<script src="script.js"></script>
