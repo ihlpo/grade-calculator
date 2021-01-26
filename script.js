@@ -5,7 +5,7 @@ function compute_grade(){
 
 function add_row(){
     let table_length = document.getElementsByClassName("grade-row").length;
-    console.log("adding row...")
+    console.log("Adding row...")
     let row = document.createElement("TR");
     row.setAttribute("class","grade-row");
     row.setAttribute("id", `${table_length + 1}`)
@@ -36,7 +36,14 @@ function add_row(){
     document.getElementById(`w${table_length + 1}`).appendChild(weight_input);
 }
 
+function remove_row(){
+    console.log("Removing last row...")
+    let table_body = document.getElementById("table-body");
+    table_body.removeChild(table_body.lastChild);
+}
+
 let compute_button = document.getElementById("compute");
 
 document.getElementById("compute").addEventListener("click", compute_grade);
 document.getElementById("add-row").addEventListener("click", add_row);
+document.getElementById("remove-row").addEventListener("click", remove_row);
