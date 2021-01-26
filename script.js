@@ -1,6 +1,26 @@
 
 function compute_grade(){
-    console.log("hi")
+    let grades = document.getElementsByClassName("grade");
+    let weights = document.getElementsByClassName("weight");
+    let results = [];
+    let total_weights = [];
+
+    for (let i = 0; i < grades.length; i++){
+        results.push((grades[i].value * (weights[i].value / 100)));
+        total_weights.push(Number(weights[i].value));
+    }
+
+    //computes the sum
+    let sum_of_grades = results.reduce((a,b) => a + b);
+    let sum_of_weights = total_weights.reduce((a,b) => a + b);
+
+    output = document.createElement("P");
+    output.innerHTML = 
+    `You're current weighted average grade is ${sum_of_grades},
+    with a total of ${sum_of_weights}% of the course completed.`
+
+    document.getElementById("grade-result").appendChild(output);
+
 };
 
 function add_row(){
@@ -41,8 +61,6 @@ function remove_row(){
     let table_body = document.getElementById("table-body");
     table_body.removeChild(table_body.lastChild);
 }
-
-let compute_button = document.getElementById("compute");
 
 document.getElementById("compute").addEventListener("click", compute_grade);
 document.getElementById("add-row").addEventListener("click", add_row);
