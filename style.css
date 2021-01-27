@@ -41,3 +41,17 @@ button {
     margin: 20px 10px;
 
 }
+
+@media (max-device-width: 480px){
+    table {
+    width: 320px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 340px;
+    }
+
+
+}
